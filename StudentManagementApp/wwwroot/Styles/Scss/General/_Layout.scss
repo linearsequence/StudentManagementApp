@@ -1,0 +1,29 @@
+@import "../utils/variables";
+
+header {
+    .navbar {
+        padding: 15px 20px;
+
+        &-brand {
+            i {
+                color: $blue;
+                font-size: 22px;
+                transition: $transition2s;
+
+                &:hover {
+                    color: $green;
+                }
+            }
+        }
+
+        .a-nav-link {
+            color: $blue;
+            font-size: 22px;
+            font-weight: $fw-bold;
+
+            &:hover {
+                color: $green;
+            }
+        }
+    }
+}

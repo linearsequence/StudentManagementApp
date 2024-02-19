@@ -1,0 +1,101 @@
+﻿@model IEnumerable<StudentManagementApp.Models.Student>
+
+@{
+    ViewData["Title"] = "All students";
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="popup-alert">
+        <span class="close-btn">X</span>
+
+        <p>
+            @ViewBag.Message
+            <i class="fa-solid fa-square-check"></i>
+        </p>
+    </div>
+    <div class="bk-drop-filter"></div>
+}
+
+<section class="student-dashboard">
+    <div class="top-banner">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-lg-6 col-sm-12">
+                    <h1>Students list</h1>
+                </div>
+
+                <div class="col-lg-6 col-sm-12 text-end">
+                    <a asp-action="Create" class="round-btn">Create New</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th>
+                        <p>First Name</p>
+                    </th>
+                    <th>
+                        <p>Last Name</p>
+                    </th>
+                    <th>
+                        <p>Date of Birth</p>
+                    </th>
+                    <th>
+                        <p>Year of Study</p>
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderBy(s => s.LastName))
+                {
+                    <tr>
+                        <td>
+                            @Html.Raw(item.FirstName)
+                        </td>
+                        <td>
+                            @Html.Raw(item.LastName)
+                        </td>
+                        <td>
+                            @Html.Raw(item.DateOfBirth.ToString("dd/MM/yyyy"))
+                        </td>
+                        <td>
+                            @Html.Raw(item.YearOfStudy)
+                        </td>
+                        <td>
+                            <a asp-action="Update" asp-route-id="@item.Id" title="Edit details"><i class="fa-solid fa-pencil"></i></a> |
+                            <a asp-action="Read" asp-route-id="@item.Id" title="View Details"><i class="fa-solid fa-eye"></i></a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" onclick="return confirm('Are you sure you want to delete student @item.FirstName @item.LastName?');" class="delete-link" data-id="@item.Id"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $(document).mouseup(function (e) {
+            var container = $(".popup-alert");
+            var backDropFilter = $(".bk-drop-filter");
+
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.hide();
+                backDropFilter.hide();
+            }
+        });
+        $(".close-btn").click(function () {
+            var container = $(".popup-alert");
+            var backDropFilter = $(".bk-drop-filter");
+
+            container.hide();
+            backDropFilter.hide();
+        });
+    });
+</script>

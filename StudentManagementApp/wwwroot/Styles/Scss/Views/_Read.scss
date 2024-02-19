@@ -1,0 +1,30 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+section.read-student-details {
+
+    h1 {
+        font-weight: $fw-bold;
+        font-size: 30px;
+
+        @include medium-down {
+            font-size: 22px;
+        }
+    }
+
+    .details-wrap {
+        margin-bottom: 30px;
+
+        h6 {
+            color: $blue;
+            font-weight: $fw-bold;
+            margin: 0;
+        }
+
+        .col-sm-2, .col-sm-10 {
+            border-bottom: 1px solid $faint-grey;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+}

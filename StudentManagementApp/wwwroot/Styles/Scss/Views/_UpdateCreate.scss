@@ -1,0 +1,48 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+section.update-student {
+    margin-bottom: 30px;
+
+    h1 {
+        font-weight: $fw-bold;
+        font-size: 30px;
+
+        @include medium-down {
+            font-size: 22px;
+        }
+    }
+
+    form {
+        .form-group {
+            margin-bottom: 20px;
+
+            .form-label {
+                font-weight: $fw-bold;
+                color: $blue;
+                display: block;
+            }
+
+            .datepicker {
+                width: 100%;
+                border: 1px solid #ced4da;
+                height: 38px;
+                border-radius: .25rem;
+                padding: .375rem .75rem;
+            }
+
+            .round-btn {
+                transition: $transition2s;
+            }
+        }
+    }
+}
+
+.create {
+    margin-bottom: 30px;
+
+    .round-btn {
+        transition: $transition2s;
+        margin-bottom: 30px;
+    }
+}

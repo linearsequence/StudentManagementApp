@@ -1,0 +1,96 @@
+//imports
+@import "general/layout";
+@import "views/studentdashboard";
+@import "views/read";
+@import "views/updatecreate";
+
+//global
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+
+    @media (min-width: 768px) {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: $primary-font;
+
+    a {
+        text-decoration: none;
+        transition: $transition2s;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .round-btn {
+        background-color: $green;
+        color: $white;
+        font-size: 13px;
+        border-radius: 30px;
+        padding: 10px 20px;
+        font-weight: $fw-semibold;
+        border: none;
+        min-width: 116px;
+
+        &:hover {
+            background-color: $blue;
+        }
+    }
+
+    .welcome-banner {
+        height: 100vh !important;
+
+        .flex-class {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+
+            h1 {
+                margin-bottom: 30px;
+            }
+
+            .round-btn{
+                font-size: 20px;
+            }
+        }
+    }
+
+    .top-banner {
+        height: 200px;
+        margin-bottom: 30px;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+        padding-bottom: 30px;
+
+        .container, .row {
+            height: 100%;
+        }
+
+        h1 {
+            color: $white;
+            font-weight: $fw-bold;
+            margin: 0;
+        }
+    }
+
+    .back-to-link {
+        color: $blue;
+        font-weight: $fw-bold;
+        text-decoration: underline;
+        font-size: 14px;
+
+        &:hover {
+            color: $green;
+        }
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}

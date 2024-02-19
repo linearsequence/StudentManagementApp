@@ -1,0 +1,40 @@
+/* Small only */
+@mixin small-only {
+    @media screen and (max-width: 39.9375em) {
+        @content;
+    }
+}
+
+@mixin medium-down {
+    @media screen and (max-width: 63.9374em) {
+        @content;
+    }
+}
+
+/* Medium and up */
+@mixin medium-and-up {
+    @media screen and (min-width: 40em) {
+        @content;
+    }
+}
+
+/* Medium only */
+@mixin medium-only {
+    @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+        @content;
+    }
+}
+
+/* Large and up */
+@mixin large-and-up {
+    @media screen and (min-width: 64em) {
+        @content;
+    }
+}
+
+/* Large only */
+@mixin large-only {
+    @media screen and (min-width: 64em) and (max-width: 74.9375em) {
+        @content;
+    }
+}

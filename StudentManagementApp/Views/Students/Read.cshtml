@@ -1,0 +1,72 @@
+﻿@model StudentManagementApp.Models.Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section class="read-student-details">
+    <div class="top-banner">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-12">
+                    <h1>Personal information</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="details-wrap">
+            <div class="row">
+                <div class="col-sm-2">
+                    <h6>First Name</h6>
+                </div>
+                <div class="col-sm-10">
+                    <p> @Html.DisplayFor(model => model.FirstName)</p>
+                </div>
+
+                <div class="col-sm-2">
+                    <h6>Last Name</h6>
+                </div>
+                <div class="col-sm-10">
+                    <p>@Html.DisplayFor(model => model.LastName)</p>
+                </div>
+
+                <div class="col-sm-2">
+                    <h6>Date of birth</h6>
+                </div>
+                <div class="col-sm-10">
+                    <p>@Html.DisplayFor(model => model.DateOfBirth)</p>
+                </div>
+
+                <div class="col-sm-2">
+                    <h6>Year of study</h6>
+                </div>
+                <div class="col-sm-10">
+                    <p>@Html.DisplayFor(model => model.YearOfStudy)</p>
+                </div>
+
+                @if (Model.StudentSubjects != null && Model.StudentSubjects.Any())
+                {
+                    <div class="col-sm-2">
+                        <h6>Subjects</h6>
+                    </div>
+                    <div class="col-sm-10">
+                        @foreach (var subject in Model.StudentSubjects)
+                        {
+                            <span class="subject"> @subject.Subject?.SubjectTitle </span>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Update" asp-route-id="@Model?.Id" title="Edit details"><i class="fa-solid fa-pencil"></i></a> |
+            <a asp-action="Index" class="back-to-link">Back to List</a>
+        </div>
+    </div>
+
+    
+
+</section>
