@@ -13,7 +13,7 @@ For this project I have used:
 
 # Web API Endpoints 
 Tested with Fiddler
-- https://localhost:44379/student/details?studentid=1
-- https://localhost:44379/student/list
+- https://localhost../student/details?studentid=1
+- https://localhost../student/list
 
   
